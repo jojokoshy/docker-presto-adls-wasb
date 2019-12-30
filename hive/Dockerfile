@@ -1,6 +1,6 @@
 FROM bde2020/hadoop-base:2.0.0-hadoop2.7.4-java8
 
-ENV HIVE_VERSION=3.1.2
+ENV HIVE_VERSION=1.2.1
 ENV HIVE_HOME=/usr/local/hive
 ENV PATH=$HIVE_HOME/bin:$PATH
 
