@@ -39,7 +39,8 @@ EOF
 # Connector properties
 cat > $PRESTO_DIR/etc/catalog/hive.properties <<EOF
 connector.name=hive-hadoop2
-hive.metastore.uri=thrift://hive:9083
+#hive.metastore.uri=thrift://hive:9083
+hive.metastore.uri=thrift://hive-metastore:9083
 hive.config.resources=${PRESTO_DIR}/etc/catalog/adls-wasb-site.xml
 EOF
 
