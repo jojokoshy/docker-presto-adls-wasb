@@ -1,4 +1,4 @@
-FROM bde2020/hadoop-base:2.0.0-hadoop2.7.4-java8
+FROM sequenceiq/hadoop-docker:2.7.0
 
 ENV HIVE_VERSION=1.2.1
 ENV HIVE_HOME=/usr/local/hive
@@ -18,7 +18,11 @@ RUN cd $HIVE_HOME/lib && \
 	curl -O http://repo1.maven.org/maven2/com/microsoft/azure/azure-data-lake-store-sdk/2.3.8/azure-data-lake-store-sdk-2.3.8.jar && \
     curl -O http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure-datalake/3.2.1/hadoop-azure-datalake-3.2.1.jar
 
- 
+RUN yum erase -y jdk && \
+	curl -s -LO 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm' -H 'Cookie: oraclelicense=accept-securebackup-cookie' && \
+	rpm -i jdk-8u131-linux-x64.rpm && \
+	rm jdk-8u131-linux-x64.rpm
+	
 
 EXPOSE 9083
 
