@@ -5,6 +5,9 @@ ENV HIVE_HOME=/usr/local/hive
 ENV PATH=$HIVE_HOME/bin:$PATH
 
 
+
+
+
 #Testing 3
 # Download hive
 RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
@@ -14,16 +17,12 @@ RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://ar
 RUN apt-get update
 
 #Install Hive and PostgreSQL JDBC
-RUN apt-get install -y wget procps && \
-	wget https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	tar -xzvf apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	mv apache-hive-$HIVE_VERSION-bin hive && \
-	wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar -O $HIVE_HOME/lib/postgresql-jdbc.jar && \
-	rm apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	apt-get --purge remove -y wget && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists/*
-
+# Download hive
+RUN curl -s -O http://apache.claz.org/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz && \
+	tar -zxf ./apache-hive-${HIVE_VERSION}-bin.tar.gz && \
+	mv ./apache-hive-${HIVE_VERSION}-bin $HIVE_HOME && \
+	rm -f ./apache-hive-${HIVE_VERSION}-bin.tar.gz
+	
 
 # Download specific jars needed for ADLS and WASB and not included in Hive
 RUN cd $HIVE_HOME/lib && \
