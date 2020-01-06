@@ -14,7 +14,8 @@ ENV PATH=$HIVE_HOME/bin:$PATH
 
 #RUN apt-get -o Acquire::Check-Valid-Until=false update
 
-RUN apt-get update
+RUN yum check-update
+
 
 #Install Hive and PostgreSQL JDBC
 # Download hive
