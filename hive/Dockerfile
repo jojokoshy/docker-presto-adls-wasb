@@ -16,10 +16,11 @@ ENV PATH=$HIVE_HOME/bin:$PATH
 
 #RUN yum check-update
 
+RUN yum install wget
 
 #Install Hive and PostgreSQL JDBC
 # Download hive
-RUN curl -s -O https://archive.apache.org/dist/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz
+RUN wget https://archive.apache.org/dist/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz
 RUN tar -zxf ./apache-hive-${HIVE_VERSION}-bin.tar.gz 
 RUN mv ./apache-hive-${HIVE_VERSION}-bin $HIVE_HOME 
 RUN rm -f ./apache-hive-${HIVE_VERSION}-bin.tar.gz
