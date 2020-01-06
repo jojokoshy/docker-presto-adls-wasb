@@ -19,10 +19,10 @@ ENV PATH=$HIVE_HOME/bin:$PATH
 
 #Install Hive and PostgreSQL JDBC
 # Download hive
-RUN curl -s -O https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz && \
-	tar -zxf ./apache-hive-${HIVE_VERSION}-bin.tar.gz && \
-	mv ./apache-hive-${HIVE_VERSION}-bin $HIVE_HOME && \
-	rm -f ./apache-hive-${HIVE_VERSION}-bin.tar.gz
+RUN curl -s -O https://archive.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz
+RUN tar -zxf ./apache-hive-${HIVE_VERSION}-bin.tar.gz 
+RUN mv ./apache-hive-${HIVE_VERSION}-bin $HIVE_HOME 
+RUN rm -f ./apache-hive-${HIVE_VERSION}-bin.tar.gz
 	
 
 # Download specific jars needed for ADLS and WASB and not included in Hive
