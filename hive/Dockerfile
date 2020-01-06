@@ -4,6 +4,8 @@ ENV HIVE_VERSION=1.2.1
 ENV HIVE_HOME=/usr/local/hive
 ENV PATH=$HIVE_HOME/bin:$PATH
 
+
+#Testing
 # Download hive
 RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
 
