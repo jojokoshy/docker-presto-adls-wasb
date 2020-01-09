@@ -15,6 +15,7 @@ ENV PATH=$HIVE_HOME/bin:$PATH
 #RUN apt-get -o Acquire::Check-Valid-Until=false update
 
 #RUN yum check-update
+RUN add yum cleaning 
 RUN yum history sync
 RUN yum install -y yum-plugin-ovl
 RUN yum -y install wget
