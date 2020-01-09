@@ -16,7 +16,7 @@ ENV PATH=$HIVE_HOME/bin:$PATH
 
 #RUN yum check-update
 RUN yum history sync
-
+RUN yum install -y yum-plugin-ovl
 RUN yum -y install wget
 
 #Install Hive and PostgreSQL JDBC
