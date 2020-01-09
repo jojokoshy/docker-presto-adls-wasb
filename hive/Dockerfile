@@ -37,7 +37,7 @@ RUN cd $HIVE_HOME/lib && \
 
 RUN yum erase -y jdk 
 
-RUN curl -jkL -H "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jre-8u131-linux-x64.tar.gz -o jre-8u131-linux-x64.tar.gz
+RUN curl -jkL -H 'Cookie: oraclelicense=accept-securebackup-cookie' 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jre-8u131-linux-x64.tar.gz' -o jre-8u131-linux-x64.tar.gz
 
 RUN curl -s -LO 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.rpm' -H 'Cookie: oraclelicense=accept-securebackup-cookie' 
 #RUN rpm -i jdk-8u131-linux-x64.rpm 
