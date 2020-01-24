@@ -2,12 +2,12 @@ version: "3"
 
 services:
   hive:
-    build: hive
+    build: jojokoshy/presto-hive:v7
     env_file:
       - ./env.conf.private
 
   presto:
-    build: presto
+    build: jojokoshy/presto:v6
     depends_on:
       - hive
     env_file:
