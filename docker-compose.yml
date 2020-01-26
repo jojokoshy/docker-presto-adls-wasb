@@ -2,7 +2,7 @@ version: "2"
 
 services:
   hive:
-    image: jojokoshy/presto-hive:v7
+    image: jojokoshy/presto-hive:v8
     env_file:
       - ./env.conf.private
 
